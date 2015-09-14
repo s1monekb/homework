@@ -23,11 +23,11 @@ echo "<br>Недавно я прочитал книку \"$book[title]\", нап
 
 //Задание 4
 $books = array(
-    $book1 = array (
-        "title1" => "Колыбельная",
-        "author1" => "Чак Паланик",
-        "pages1" => 288),
-    $book2 = array (
+    array (
+    "title1" => "Колыбельная",
+    "author1" => "Чак Паланик",
+    "pages1" => 288),
+    array (
         "title2" => "Бегущий за ветром",
         "author2" => "Халед Хоссейни",
         "pages2" => 448)
