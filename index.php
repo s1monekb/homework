@@ -1,36 +1,34 @@
 <?
 
-//Задание 1
-$name = 'Семён';
-$age = 27;
-echo "Меня зовут $name<br>";
-echo "Мне $age лет<br>";
-unset($age,$name);
-
-//Задание 2
-define("city", "Екатеринбург");
-if (defined("city")) {
-    echo "Мой город - ". city;
-}
-
-//Задание 3
-$book = array(
-    "title" => "Колыбельная",
-    "author" => "Чак Паланик",
-    "pages" => 288,
+$date = array (
+    rand(1, time()),
+    rand(1, time()),
+    rand(1, time()),
+    rand(1, time()),
+    rand(1, time()),
 );
-echo "<br>Недавно я прочитал книку \"$book[title]\", написанную автором $book[author], я осилил все $book[pages] страниц, она мне очень понравилась<br>";
 
-//Задание 4
-$books = array(
-    array (
-    "title1" => "Колыбельная",
-    "author1" => "Чак Паланик",
-    "pages1" => 288),
-    array (
-        "title2" => "Бегущий за ветром",
-        "author2" => "Халед Хоссейни",
-        "pages2" => 448)
+$minday = min(date('d', $date[0]),
+        date('d', $date[1]),
+        date('d', $date[2]),
+        date('d', $date[3]),
+        date('d', $date[4])
 );
-//print_r($books);
-echo 'Недавно я прочитал книги "'.$books[0]["title1"].'" и "',$books[1]["title2"].'", написанные соответственно авторами '.$books[0]["author1"].' и '.$books[1]["author2"].', я осилил в сумме '.($books[0]["pages1"]+$books[1]["pages2"]).' страниц, не ожидал от себя подобного.';
+echo 'Минимальный день '. $minday. "<br>";
+
+$maxmon = max(date('m', $date[0]),
+        date('m', $date[1]),
+        date('m', $date[2]),
+        date('m', $date[3]),
+        date('m', $date[4])
+);
+echo 'Максимальный месяц '. $maxmon. "<br>";
+
+sort($date);
+
+$selected = array_pop($date);
+
+echo date("d-m-Y : H:i:s", $selected)."<br>";
+
+date_default_timezone_set('America/New_York');
+echo 'Время в Нью-Йорке - '.date("d-m-Y : H:i:s", $selected);
